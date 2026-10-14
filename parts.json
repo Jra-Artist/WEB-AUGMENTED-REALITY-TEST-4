@@ -1,0 +1,919 @@
+{
+ "levels": [
+  {
+   "id": "assembly",
+   "name": "PC Assembly",
+   "doneText": "All parts installed! Check your results.",
+   "tiltDeg": 50,
+   "sessionName": "PC Assembly (CPU, RAM, GPU, PSU, HDD, SSD)",
+   "board": {
+    "width": 322.78,
+    "depth": 420.53,
+    "file": "models/motherboard.glb"
+   },
+   "slots": [
+    {
+     "id": "dimm1",
+     "type": "dimm",
+     "x": 124.86,
+     "z": -10.75,
+     "len": 204.48,
+     "w": 9.66,
+     "h": 14.14
+    },
+    {
+     "id": "dimm2",
+     "type": "dimm",
+     "x": 137.81,
+     "z": -10.75,
+     "len": 204.48,
+     "w": 9.66,
+     "h": 14.14
+    },
+    {
+     "id": "dimm3",
+     "type": "dimm",
+     "x": 151.05,
+     "z": -10.75,
+     "len": 204.48,
+     "w": 9.66,
+     "h": 14.14
+    },
+    {
+     "id": "dimm4",
+     "type": "dimm",
+     "x": 163.47,
+     "z": -10.75,
+     "len": 204.48,
+     "w": 9.66,
+     "h": 14.14
+    },
+    {
+     "id": "dimm5",
+     "type": "dimm",
+     "x": 176.76,
+     "z": -10.75,
+     "len": 204.48,
+     "w": 9.66,
+     "h": 14.14
+    },
+    {
+     "id": "dimm6",
+     "type": "dimm",
+     "x": 188.28,
+     "z": -10.75,
+     "len": 204.48,
+     "w": 9.66,
+     "h": 14.14
+    },
+    {
+     "id": "pcie16_1",
+     "type": "pcie16",
+     "x": -42.82,
+     "z": -46.59,
+     "len": 115.1,
+     "w": 12.22,
+     "h": 13.62
+    },
+    {
+     "id": "pcie16_2",
+     "type": "pcie16",
+     "x": -154.65,
+     "z": -54.35,
+     "len": 112.57,
+     "w": 12.22,
+     "h": 14.63
+    },
+    {
+     "id": "pcie_small1",
+     "type": "pciesmall",
+     "x": -127.25,
+     "z": -66.92,
+     "len": 73.45,
+     "w": 12.22,
+     "h": 13.62
+    },
+    {
+     "id": "pcie_small2",
+     "type": "pciesmall",
+     "x": -99.22,
+     "z": -66.92,
+     "len": 73.45,
+     "w": 12.22,
+     "h": 13.62
+    },
+    {
+     "id": "pcie_small3",
+     "type": "pciesmall",
+     "x": -71.22,
+     "z": -66.92,
+     "len": 73.45,
+     "w": 12.22,
+     "h": 13.62
+    },
+    {
+     "id": "cpu_socket",
+     "type": "cpu",
+     "x": 52.85,
+     "z": -12.88,
+     "len": 92.86,
+     "w": 73.13,
+     "h": 5.06
+    },
+    {
+     "id": "atx24",
+     "type": "atx24",
+     "x": 203.04,
+     "z": 109.6,
+     "len": 68.19,
+     "w": 12.13,
+     "h": 10.31
+    },
+    {
+     "id": "sata1",
+     "type": "sata",
+     "x": -191.04,
+     "z": -36.88,
+     "len": 21.36,
+     "w": 8.18,
+     "h": 6.24
+    },
+    {
+     "id": "sata2",
+     "type": "sata",
+     "x": -191.04,
+     "z": -13.03,
+     "len": 21.36,
+     "w": 8.18,
+     "h": 6.24
+    },
+    {
+     "id": "sata3",
+     "type": "sata",
+     "x": -191.04,
+     "z": 10.4,
+     "len": 21.36,
+     "w": 8.18,
+     "h": 6.24
+    },
+    {
+     "id": "sata4",
+     "type": "sata",
+     "x": -191.04,
+     "z": 34.2,
+     "len": 21.36,
+     "w": 8.18,
+     "h": 6.24
+    },
+    {
+     "id": "sata5",
+     "type": "sata",
+     "x": -203.39,
+     "z": -18.29,
+     "len": 21.36,
+     "w": 8.18,
+     "h": 6.24
+    },
+    {
+     "id": "sata6",
+     "type": "sata",
+     "x": -203.39,
+     "z": 5.55,
+     "len": 21.36,
+     "w": 8.18,
+     "h": 6.24
+    },
+    {
+     "id": "sata7",
+     "type": "sata",
+     "x": -203.39,
+     "z": 28.98,
+     "len": 21.36,
+     "w": 8.18,
+     "h": 6.24
+    },
+    {
+     "id": "sata8",
+     "type": "sata",
+     "x": -203.39,
+     "z": 52.79,
+     "len": 21.36,
+     "w": 8.18,
+     "h": 6.24
+    }
+   ],
+   "props": [
+    {
+     "id": "psu",
+     "file": "models/psu.glb",
+     "pos": [
+      288,
+      0,
+      95
+     ],
+     "showFrom": 3
+    },
+    {
+     "id": "hdd",
+     "file": "models/hdd.glb",
+     "pos": [
+      -335,
+      0,
+      -85
+     ],
+     "showFrom": 4
+    },
+    {
+     "id": "ssd",
+     "file": "models/ssd.glb",
+     "pos": [
+      -325,
+      0,
+      85
+     ],
+     "showFrom": 5
+    }
+   ],
+   "parts": [
+    {
+     "id": "cpu",
+     "name": "CPU",
+     "file": "models/cpu.glb",
+     "accepts": [
+      "cpu"
+     ],
+     "center": [
+      0,
+      2.6,
+      0
+     ],
+     "seatY": 5.1,
+     "dock": [
+      -290,
+      12,
+      0
+     ],
+     "place": "Move the CPU over the large square CPU socket in the middle of the board, then release to place it.",
+     "wrong": {
+      "dimm": "That is a memory (DIMM) slot. The CPU goes in the large square CPU socket.",
+      "pcie16": "That is a long PCIe x16 slot. The CPU goes in the large square CPU socket.",
+      "pciesmall": "That is a short PCIe slot. The CPU goes in the large square CPU socket.",
+      "sata": "That is a SATA port. The CPU goes in the large square CPU socket.",
+      "atx24": "That is the 24-pin power connector. The CPU goes in the large square CPU socket."
+     }
+    },
+    {
+     "id": "ram",
+     "name": "RAM module",
+     "file": "models/ram.glb",
+     "accepts": [
+      "dimm"
+     ],
+     "center": [
+      0,
+      23.77,
+      0
+     ],
+     "seatY": 6,
+     "dock": [
+      -285,
+      25,
+      0
+     ],
+     "place": "Move the RAM over a DIMM slot (the row of long slots), then release to seat it.",
+     "wrong": {
+      "pcie16": "That is a long PCIe x16 slot. RAM goes in a DIMM slot.",
+      "pciesmall": "That is a short PCIe slot. RAM goes in a DIMM slot.",
+      "cpu": "That is the CPU socket. RAM goes in a DIMM slot.",
+      "sata": "That is a SATA port. RAM goes in a DIMM slot.",
+      "atx24": "That is the 24-pin power connector. RAM goes in a DIMM slot."
+     }
+    },
+    {
+     "id": "gpu",
+     "name": "Graphics card (GPU)",
+     "file": "models/gpu.glb",
+     "accepts": [
+      "pcie16"
+     ],
+     "center": [
+      0,
+      79.21,
+      18
+     ],
+     "seatY": 6,
+     "dock": [
+      -290,
+      20,
+      -18
+     ],
+     "place": "Move the GPU over the long PCIe x16 slot, then release to seat it.",
+     "wrong": {
+      "dimm": "That is a memory (DIMM) slot. The GPU needs a long PCIe x16 slot.",
+      "pciesmall": "That is a short PCIe slot. The GPU needs a long PCIe x16 slot.",
+      "cpu": "That is the CPU socket. The GPU needs a long PCIe x16 slot.",
+      "sata": "That is a SATA port. The GPU needs a long PCIe x16 slot.",
+      "atx24": "That is the 24-pin power connector. The GPU needs a long PCIe x16 slot."
+     }
+    },
+    {
+     "id": "psu-cable",
+     "name": "PSU 24-pin power cable",
+     "file": "models/atx24-plug.glb",
+     "accepts": [
+      "atx24"
+     ],
+     "center": [
+      0,
+      7,
+      0
+     ],
+     "seatY": 6,
+     "dock": [
+      244,
+      -13,
+      95
+     ],
+     "kind": "cable",
+     "verb": "Connect",
+     "prop": "psu",
+     "fromPoint": [
+      -34,
+      16,
+      0
+     ],
+     "cableColor": "#222222",
+     "place": "Drag the 24-pin plug to the long power connector on the right edge of the motherboard, then release to plug it in.",
+     "wrong": {
+      "dimm": "That is a memory (DIMM) slot. The 24-pin plug goes in the long power connector on the right edge of the board.",
+      "pcie16": "That is a long PCIe x16 slot. The 24-pin plug goes in the long power connector on the right edge of the board.",
+      "pciesmall": "That is a short PCIe slot. The 24-pin plug goes in the long power connector on the right edge of the board.",
+      "cpu": "That is the CPU socket. The 24-pin plug goes in the long power connector on the right edge of the board.",
+      "sata": "That is a SATA port. The 24-pin plug goes in the long power connector on the right edge of the board."
+     }
+    },
+    {
+     "id": "hdd-cable",
+     "name": "HDD SATA cable",
+     "file": "models/sata-plug.glb",
+     "accepts": [
+      "sata"
+     ],
+     "center": [
+      0,
+      3.6,
+      -3
+     ],
+     "seatY": 4,
+     "dock": [
+      -262,
+      -6,
+      -125
+     ],
+     "kind": "cable",
+     "verb": "Connect",
+     "prop": "hdd",
+     "fromPoint": [
+      55,
+      9,
+      -40
+     ],
+     "cableColor": "#d32f2f",
+     "place": "Drag the cable plug to one of the blue SATA ports on the motherboard, then release to plug it in.",
+     "wrong": {
+      "dimm": "That is a memory (DIMM) slot. The SATA plug goes in a blue SATA port.",
+      "pcie16": "That is a long PCIe x16 slot. The SATA plug goes in a blue SATA port.",
+      "pciesmall": "That is a short PCIe slot. The SATA plug goes in a blue SATA port.",
+      "cpu": "That is the CPU socket. The SATA plug goes in a blue SATA port.",
+      "atx24": "That is the 24-pin power connector. The SATA plug goes in a blue SATA port."
+     }
+    },
+    {
+     "id": "ssd-cable",
+     "name": "SSD SATA cable",
+     "file": "models/sata-plug.glb",
+     "accepts": [
+      "sata"
+     ],
+     "center": [
+      0,
+      3.6,
+      -3
+     ],
+     "seatY": 4,
+     "dock": [
+      -265.5,
+      -0.5,
+      60
+     ],
+     "kind": "cable",
+     "verb": "Connect",
+     "prop": "ssd",
+     "fromPoint": [
+      41.5,
+      3.5,
+      -25
+     ],
+     "cableColor": "#d32f2f",
+     "place": "Drag the cable plug to a free blue SATA port on the motherboard, then release to plug it in.",
+     "wrong": {
+      "dimm": "That is a memory (DIMM) slot. The SATA plug goes in a blue SATA port.",
+      "pcie16": "That is a long PCIe x16 slot. The SATA plug goes in a blue SATA port.",
+      "pciesmall": "That is a short PCIe slot. The SATA plug goes in a blue SATA port.",
+      "cpu": "That is the CPU socket. The SATA plug goes in a blue SATA port.",
+      "atx24": "That is the 24-pin power connector. The SATA plug goes in a blue SATA port."
+     }
+    }
+   ]
+  },
+  {
+   "id": "peripherals",
+   "name": "Connecting Peripherals",
+   "doneText": "Everything is connected and powered ON! Check your results.",
+   "tiltDeg": 80,
+   "rotY": 0,
+   "hover": 30,
+   "tubeR": 1.6,
+   "preUsed": [
+    "outlet4"
+   ],
+   "sessionName": "Connecting Peripherals (monitor, keyboard, mouse, AVR)",
+   "board": {
+    "width": 352,
+    "depth": 224,
+    "file": "models/scene.glb"
+   },
+   "slots": [
+    {
+     "id": "usb1",
+     "type": "usb",
+     "x": -80,
+     "z": -62,
+     "len": 5,
+     "w": 9,
+     "h": 16.5
+    },
+    {
+     "id": "usb2",
+     "type": "usb",
+     "x": -68,
+     "z": -62,
+     "len": 5,
+     "w": 9,
+     "h": 16.5
+    },
+    {
+     "id": "usb3",
+     "type": "usb",
+     "x": -56,
+     "z": -62,
+     "len": 5,
+     "w": 9,
+     "h": 16.5
+    },
+    {
+     "id": "usb4",
+     "type": "usb",
+     "x": -44,
+     "z": -62,
+     "len": 5,
+     "w": 9,
+     "h": 16.5
+    },
+    {
+     "id": "hdmi",
+     "type": "hdmi",
+     "x": -77,
+     "z": -48,
+     "len": 6,
+     "w": 15,
+     "h": 16.5
+    },
+    {
+     "id": "vga",
+     "type": "vga",
+     "x": -48,
+     "z": -48,
+     "len": 9,
+     "w": 21,
+     "h": 16.5
+    },
+    {
+     "id": "dvi",
+     "type": "dvi",
+     "x": -48,
+     "z": -30,
+     "len": 8,
+     "w": 26,
+     "h": 16.5
+    },
+    {
+     "id": "lan",
+     "type": "lan",
+     "x": -77,
+     "z": -30,
+     "len": 12,
+     "w": 14,
+     "h": 17
+    },
+    {
+     "id": "audio1",
+     "type": "audio",
+     "x": -80,
+     "z": -14,
+     "len": 6,
+     "w": 6,
+     "h": 16
+    },
+    {
+     "id": "audio2",
+     "type": "audio",
+     "x": -68,
+     "z": -14,
+     "len": 6,
+     "w": 6,
+     "h": 16
+    },
+    {
+     "id": "audio3",
+     "type": "audio",
+     "x": -56,
+     "z": -14,
+     "len": 6,
+     "w": 6,
+     "h": 16
+    },
+    {
+     "id": "inlet",
+     "type": "inlet",
+     "x": -60,
+     "z": 55,
+     "len": 12,
+     "w": 18,
+     "h": 17
+    },
+    {
+     "id": "outlet1",
+     "type": "outlet",
+     "x": 26,
+     "z": 78,
+     "len": 13,
+     "w": 13,
+     "h": 15.5
+    },
+    {
+     "id": "outlet2",
+     "type": "outlet",
+     "x": 44,
+     "z": 78,
+     "len": 13,
+     "w": 13,
+     "h": 15.5
+    },
+    {
+     "id": "outlet3",
+     "type": "outlet",
+     "x": 62,
+     "z": 78,
+     "len": 13,
+     "w": 13,
+     "h": 15.5
+    },
+    {
+     "id": "outlet4",
+     "type": "outlet",
+     "x": 80,
+     "z": 78,
+     "len": 13,
+     "w": 13,
+     "h": 15.5
+    },
+    {
+     "id": "avr_switch",
+     "type": "switch",
+     "x": 12,
+     "z": 78,
+     "len": 14,
+     "w": 10,
+     "h": 16
+    },
+    {
+     "id": "wall",
+     "type": "wall",
+     "x": 88,
+     "z": 18,
+     "len": 16,
+     "w": 14,
+     "h": 2.6
+    }
+   ],
+   "props": [],
+   "parts": [
+    {
+     "id": "vga-cable",
+     "name": "VGA cable (blue plug)",
+     "file": "models/vga-plug.glb",
+     "kind": "cable",
+     "verb": "Connect",
+     "accepts": [
+      "vga"
+     ],
+     "center": [
+      0,
+      4.5,
+      -4
+     ],
+     "seatY": 15,
+     "from": [
+      2,
+      22,
+      -95
+     ],
+     "dock": [
+      8,
+      14,
+      -58
+     ],
+     "cableColor": "#2f5bd1",
+     "place": "Drag the blue VGA plug to the VGA port on the back of the PC, then release to plug it in.",
+     "wrong": {
+      "usb": "That is a USB port. The blue VGA plug goes in the blue VGA port.",
+      "hdmi": "That is an HDMI port. The blue VGA plug goes in the blue VGA port.",
+      "dvi": "That is a DVI port. The blue VGA plug goes in the blue VGA port.",
+      "lan": "That is a network (LAN) port. The blue VGA plug goes in the blue VGA port.",
+      "audio": "That is an audio jack. The blue VGA plug goes in the blue VGA port.",
+      "inlet": "That is the PC power inlet. The blue VGA plug goes in the blue VGA port.",
+      "outlet": "That is an AVR outlet. The blue VGA plug goes in the blue VGA port.",
+      "wall": "That is the wall socket. The blue VGA plug goes in the blue VGA port.",
+      "switch": "That is the AVR power switch. The blue VGA plug goes in the blue VGA port."
+     }
+    },
+    {
+     "id": "hdmi-cable",
+     "name": "HDMI cable",
+     "file": "models/hdmi-plug.glb",
+     "kind": "cable",
+     "verb": "Connect",
+     "accepts": [
+      "hdmi"
+     ],
+     "center": [
+      0,
+      3.4,
+      -4
+     ],
+     "seatY": 15,
+     "from": [
+      28,
+      22,
+      -95
+     ],
+     "dock": [
+      48,
+      14,
+      -62
+     ],
+     "cableColor": "#222428",
+     "place": "Drag the HDMI plug to the HDMI port on the back of the PC, then release to plug it in.",
+     "wrong": {
+      "usb": "That is a USB port. The HDMI plug goes in the HDMI port.",
+      "vga": "That is a VGA port. The HDMI plug goes in the HDMI port.",
+      "dvi": "That is a DVI port. The HDMI plug goes in the HDMI port.",
+      "lan": "That is a network (LAN) port. The HDMI plug goes in the HDMI port.",
+      "audio": "That is an audio jack. The HDMI plug goes in the HDMI port.",
+      "inlet": "That is the PC power inlet. The HDMI plug goes in the HDMI port.",
+      "outlet": "That is an AVR outlet. The HDMI plug goes in the HDMI port.",
+      "wall": "That is the wall socket. The HDMI plug goes in the HDMI port.",
+      "switch": "That is the AVR power switch. The HDMI plug goes in the HDMI port."
+     }
+    },
+    {
+     "id": "keyboard",
+     "name": "Keyboard USB plug",
+     "file": "models/usb-plug.glb",
+     "kind": "cable",
+     "verb": "Connect",
+     "accepts": [
+      "usb"
+     ],
+     "center": [
+      0,
+      3,
+      -7
+     ],
+     "seatY": 15,
+     "from": [
+      -45,
+      9,
+      110
+     ],
+     "dock": [
+      -70,
+      8,
+      98
+     ],
+     "cableColor": "#222428",
+     "place": "Drag the keyboard plug to a USB port on the back of the PC, then release to plug it in.",
+     "wrong": {
+      "hdmi": "That is an HDMI port. The keyboard plug goes in a USB port.",
+      "vga": "That is a VGA port. The keyboard plug goes in a USB port.",
+      "dvi": "That is a DVI port. The keyboard plug goes in a USB port.",
+      "lan": "That is a network (LAN) port. The keyboard plug goes in a USB port.",
+      "audio": "That is an audio jack. The keyboard plug goes in a USB port.",
+      "inlet": "That is the PC power inlet. The keyboard plug goes in a USB port.",
+      "outlet": "That is an AVR outlet. The keyboard plug goes in a USB port.",
+      "wall": "That is the wall socket. The keyboard plug goes in a USB port.",
+      "switch": "That is the AVR power switch. The keyboard plug goes in a USB port."
+     }
+    },
+    {
+     "id": "mouse",
+     "name": "Mouse USB plug",
+     "file": "models/usb-plug.glb",
+     "kind": "cable",
+     "verb": "Connect",
+     "accepts": [
+      "usb"
+     ],
+     "center": [
+      0,
+      3,
+      -7
+     ],
+     "seatY": 15,
+     "from": [
+      32,
+      9,
+      114
+     ],
+     "dock": [
+      10,
+      8,
+      100
+     ],
+     "cableColor": "#222428",
+     "place": "Drag the mouse plug to a free USB port on the back of the PC, then release to plug it in.",
+     "wrong": {
+      "hdmi": "That is an HDMI port. The mouse plug goes in a USB port.",
+      "vga": "That is a VGA port. The mouse plug goes in a USB port.",
+      "dvi": "That is a DVI port. The mouse plug goes in a USB port.",
+      "lan": "That is a network (LAN) port. The mouse plug goes in a USB port.",
+      "audio": "That is an audio jack. The mouse plug goes in a USB port.",
+      "inlet": "That is the PC power inlet. The mouse plug goes in a USB port.",
+      "outlet": "That is an AVR outlet. The mouse plug goes in a USB port.",
+      "wall": "That is the wall socket. The mouse plug goes in a USB port.",
+      "switch": "That is the AVR power switch. The mouse plug goes in a USB port."
+     }
+    },
+    {
+     "id": "monitor-power",
+     "name": "Monitor power cord",
+     "file": "models/ac-plug.glb",
+     "kind": "cable",
+     "verb": "Connect",
+     "accepts": [
+      "outlet"
+     ],
+     "center": [
+      0,
+      6.5,
+      0
+     ],
+     "seatY": 14,
+     "from": [
+      -30,
+      22,
+      -95
+     ],
+     "dock": [
+      -12,
+      12,
+      -72
+     ],
+     "cableColor": "#111111",
+     "place": "Drag the monitor power plug to a free outlet on the AVR, then release to plug it in.",
+     "wrong": {
+      "usb": "That is a USB port. The power plug goes in an AVR outlet.",
+      "hdmi": "That is an HDMI port. The power plug goes in an AVR outlet.",
+      "vga": "That is a VGA port. The power plug goes in an AVR outlet.",
+      "dvi": "That is a DVI port. The power plug goes in an AVR outlet.",
+      "lan": "That is a network (LAN) port. The power plug goes in an AVR outlet.",
+      "audio": "That is an audio jack. The power plug goes in an AVR outlet.",
+      "inlet": "That is the PC power inlet. The power plug goes in an AVR outlet.",
+      "wall": "That is the wall socket. The power plug goes in an AVR outlet.",
+      "switch": "That is the AVR power switch. The power plug goes in an AVR outlet."
+     }
+    },
+    {
+     "id": "pc-power",
+     "name": "PC power cord",
+     "file": "models/c13-plug.glb",
+     "kind": "cable",
+     "verb": "Connect",
+     "accepts": [
+      "inlet"
+     ],
+     "center": [
+      0,
+      4.95,
+      0
+     ],
+     "seatY": 15.5,
+     "from": [
+      80,
+      26,
+      78
+     ],
+     "dock": [
+      66,
+      10,
+      104
+     ],
+     "cableColor": "#111111",
+     "place": "Drag the PC power cord end to the power inlet at the bottom of the PC, then release to plug it in.",
+     "wrong": {
+      "usb": "That is a USB port. The PC power cord goes in the PC power inlet.",
+      "hdmi": "That is an HDMI port. The PC power cord goes in the PC power inlet.",
+      "vga": "That is a VGA port. The PC power cord goes in the PC power inlet.",
+      "dvi": "That is a DVI port. The PC power cord goes in the PC power inlet.",
+      "lan": "That is a network (LAN) port. The PC power cord goes in the PC power inlet.",
+      "audio": "That is an audio jack. The PC power cord goes in the PC power inlet.",
+      "outlet": "That is an AVR outlet. The PC power cord goes in the PC power inlet.",
+      "wall": "That is the wall socket. The PC power cord goes in the PC power inlet.",
+      "switch": "That is the AVR power switch. The PC power cord goes in the PC power inlet."
+     }
+    },
+    {
+     "id": "avr-cord",
+     "name": "AVR power cord",
+     "file": "models/ac-plug.glb",
+     "kind": "cable",
+     "verb": "Connect",
+     "accepts": [
+      "wall"
+     ],
+     "center": [
+      0,
+      6.5,
+      0
+     ],
+     "seatY": 1.5,
+     "from": [
+      98,
+      9,
+      78
+     ],
+     "dock": [
+      92,
+      8,
+      48
+     ],
+     "cableColor": "#111111",
+     "place": "Drag the AVR plug to the wall socket, then release to plug it in.",
+     "wrong": {
+      "usb": "That is a USB port. The AVR plug goes in the wall socket.",
+      "hdmi": "That is an HDMI port. The AVR plug goes in the wall socket.",
+      "vga": "That is a VGA port. The AVR plug goes in the wall socket.",
+      "dvi": "That is a DVI port. The AVR plug goes in the wall socket.",
+      "lan": "That is a network (LAN) port. The AVR plug goes in the wall socket.",
+      "audio": "That is an audio jack. The AVR plug goes in the wall socket.",
+      "inlet": "That is the PC power inlet. The AVR plug goes in the wall socket.",
+      "outlet": "That is an AVR outlet. The AVR plug goes in the wall socket.",
+      "switch": "That is the AVR power switch. The AVR plug goes in the wall socket."
+     }
+    },
+    {
+     "id": "power-on",
+     "kind": "press",
+     "verb": "Press",
+     "name": "AVR power switch",
+     "accepts": [
+      "switch"
+     ],
+     "seatY": 0,
+     "center": [
+      0,
+      0,
+      0
+     ],
+     "dock": [
+      0,
+      0,
+      0
+     ],
+     "pick": "Final step: pinch the red AVR power switch to turn everything on.",
+     "place": "",
+     "finale": {
+      "leds": [
+       {
+        "mesh": "cff2a2b",
+        "color": "#2aff5c"
+       }
+      ]
+     },
+     "wrong": {}
+    }
+   ]
+  }
+ ]
+}
