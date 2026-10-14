@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ARCSS - Mobile Reviewer</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1675466862/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- SCREEN 1: SPLASH -->
+    <div id="screen-splash" class="screen active">
+        <div class="avatar-circle">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+        </div>
+        <div class="splash-title">ARCSS</div>
+        <div class="splash-subtitle">Handheld AR Review for CSS NC II - Hardware service</div>
+        <button class="btn-white" onclick="switchScreen('screen-login')">Get Started</button>
+    </div>
+
+    <!-- SCREEN 2: LOGIN -->
+    <div id="screen-login" class="screen">
+        <div class="login-header">WELCOME</div>
+        <div class="login-sub">Log in to continue your NC II review</div>
+        <div class="form-group">
+            <label>EMAIL</label>
+            <input type="email" id="email-input" class="form-input" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label>PASSWORD</label>
+            <input type="password" id="password-input" class="form-input" placeholder="Enter your password">
+        </div>
+        <button class="btn-white" style="max-width: 100%; margin-top: 10px;" onclick="attemptLogin()">LOG IN</button>
+        <div class="divider">or</div>
+        <button class="btn-google" onclick="attemptGoogleLogin()">Continue with Google</button>
+    </div>
+
+    <!-- SCREEN 3: DASHBOARD -->
+    <div id="screen-dashboard" class="screen">
+        <div>
+            <div class="dash-welcome">WELCOME, TRAINEE!</div>
+            <div class="dash-sub">Let's begin your CSS NC II preparation</div>
+        </div>
+        <div class="dash-cards-row">
+            <div class="white-stat-card">
+                <div class="progress-circle-wrap">
+                    <svg><circle class="circle-bg" cx="35" cy="35" r="30"></circle><circle class="circle-bar" cx="35" cy="35" r="30" style="stroke-dashoffset: 188;"></circle></svg>
+                    <div class="circle-text">0%</div>
+                </div>
+                <div class="badge-code">PRACTICE</div>
+            </div>
+            <div class="white-stat-card">
+                <div>
+                    <div class="resume-title">Up Next</div>
+                    <div class="resume-module">PC Assembly</div>
+                </div>
+                <button class="btn-resume" onclick="launchAR()">Start Practice</button>
+            </div>
+        </div>
+        <div class="section-label">YOUR MODULES</div>
+        <div class="module-list">
+            <div class="module-item">
+                <div class="module-name">00: PC Assembly (Practice)</div>
+                <button class="module-status status-continue" onclick="launchAR()">START</button>
+            </div>
+            <div class="module-item disabled">
+                <div class="module-name">01: Component Identification</div>
+                <button class="module-status status-locked">LOCKED</button>
+            </div>
+            <div class="module-item disabled">
+                <div class="module-name">02: Disassembly Procedures</div>
+                <button class="module-status status-locked">LOCKED</button>
+            </div>
+            <div class="module-item disabled">
+                <div class="module-name">03: Assembly Procedures</div>
+                <button class="module-status status-locked">LOCKED</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 4: AR SIMULATION -->
+    <div id="screen-ar" class="screen">
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="output_canvas"></canvas>
+        <div class="ar-overlay">
+            <div class="ar-top-bar">
+                <div class="ar-tab-row">
+                    <button class="ar-tab active">Tutorial Mode</button>
+                    <button class="ar-tab inactive" onclick="exitAR('screen-dashboard')" style="margin-left:auto;">Exit AR ✕</button>
+                </div>
+                <div class="scenario-card">
+                    <span id="ar-task">Task: PC assembly</span><span id="ar-timer">⏱ 0.0s</span>
+                </div>
+                <div class="ar-live-pill">
+                    <span id="ar-live-text">🔴 INITIALIZING CAMERA...</span>
+                    <div class="mode-toggle">
+                        <button class="mode-btn active">Practice</button>
+                    </div>
+                </div>
+            </div>
+            <div class="ar-bottom-card">
+                <div class="ar-step-text" id="ar-step-description">Step 1: Place your hand in front of the camera to activate tracking.</div>
+                <div class="ar-step-actions">
+                    <button class="icon-btn" title="Hint">💡</button>
+                </div>
+            </div>
+        </div>
+        <div id="ar-result" class="ar-result" style="display:none">
+            <div class="result-card">
+                <div class="result-title">Build Complete ✔</div>
+                <div class="result-stats">
+                    <div><b id="res-time">0s</b><span>Time</span></div>
+                    <div><b id="res-acc">100%</b><span>Accuracy</span></div>
+                    <div><b id="res-err">0</b><span>Misplacements</span></div>
+                </div>
+                <button class="btn-white" style="margin-top:0" onclick="restartAR()">Try Again</button>
+                <button class="btn-resume" onclick="exitAR('screen-performance')">View Records</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 5: GUIDE -->
+    <div id="screen-guide" class="screen">
+        <div class="dash-welcome">TROUBLESHOOTING GUIDE</div>
+        <div class="dash-sub">Search for specific hardware issues</div>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="🔍 Search troubleshooting topics...">
+        </div>
+
+        <div class="guide-tag-row">
+            <button class="guide-tag">CPU</button>
+            <button class="guide-tag">RAM</button>
+            <button class="guide-tag">STORAGE</button>
+            <button class="guide-tag">MOTHERBOARD</button>
+            <button class="guide-tag">PSU</button>
+        </div>
+        
+        <div class="section-label" style="margin-top: 10px;">POPULAR QUESTIONS</div>
+        <div class="guide-steps-card">
+            <div class="guide-step-item">❓ PC turns on but shows no display on the monitor?</div>
+            <div class="guide-step-item">❓ Motherboard gives continuous short beeps on startup?</div>
+            <div class="guide-step-item">❓ Blue Screen of Death (BSOD) after installing new memory?</div>
+            <div class="guide-step-item">❓ System suddenly shuts down during heavy workload?</div>
+        </div>
+    </div>
+
+    <!-- SCREEN 6: PERFORMANCE -->
+    <div id="screen-performance" class="screen">
+        <div class="dash-welcome">YOUR PERFORMANCE</div>
+        <div class="dash-sub">Automated readiness evaluation</div>
+        <div class="perf-card-overall">
+            <div class="progress-circle-wrap">
+                <svg><circle class="circle-bg" cx="35" cy="35" r="30"></circle><circle class="circle-bar" cx="35" cy="35" r="30" style="stroke: #8e94b8; stroke-dashoffset: 188;"></circle></svg>
+                <div class="circle-text" style="color: #8e94b8;">0%</div>
+            </div>
+            <div>
+                <div style="font-size: 13px; font-weight: 800;">Overall Readiness</div>
+                <div style="font-size: 11px; color: #666; margin-top: 2px;">Complete the tutorial to begin tracking.</div>
+            </div>
+        </div>
+        
+        <div class="perf-breakdown">
+            <div class="perf-item">
+                <div class="perf-item-header"><span>Component Identification</span><span style="color:#8e94b8;">0%</span></div>
+                <div class="perf-bar-bg"><div class="perf-bar-fill" style="width: 0%; background: #00c853;"></div></div>
+            </div>
+            <div class="perf-item">
+                <div class="perf-item-header"><span>Disassembly</span><span style="color:#8e94b8;">0%</span></div>
+                <div class="perf-bar-bg"><div class="perf-bar-fill" style="width: 0%; background: #3b42c4;"></div></div>
+            </div>
+            <div class="perf-item">
+                <div class="perf-item-header"><span>Assembly</span><span style="color:#8e94b8;">0%</span></div>
+                <div class="perf-bar-bg"><div class="perf-bar-fill" style="width: 0%; background: #5c6bc0;"></div></div>
+            </div>
+        </div>
+
+        <div class="recent-sessions-card">
+            <div style="font-size: 12px; font-weight: 800;">RECENT SESSIONS</div>
+            <div id="recent-list"><div class="recent-item" style="color: #aaa;">No recent sessions yet.</div></div>
+        </div>
+    </div>
+
+    <!-- SCREEN 7: SETTINGS / ACCOUNT -->
+    <div id="screen-settings" class="screen">
+        <div class="dash-welcome">ACCOUNT SETTINGS</div>
+        <div class="dash-sub">Manage your preferences</div>
+        <div class="guide-steps-card" style="margin-top: 20px;">
+            <div class="guide-step-item">👤 Profile Information</div>
+            <div class="guide-step-item">🔔 Notification Preferences</div>
+            <div class="guide-step-item">💾 Offline Storage Data</div>
+            <div class="guide-step-item" style="color: #f44336; border:none; cursor: pointer;" onclick="switchScreen('screen-login')">🚪 Log Out</div>
+        </div>
+    </div>
+
+    <!-- PERSISTENT BOTTOM NAVIGATION -->
+    <nav id="bottom-nav" style="display: none;">
+        <button class="nav-btn active" onclick="switchNav('screen-dashboard', this)">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            Dashboard
+        </button>
+        <button class="nav-btn" onclick="switchNav('screen-guide', this)">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            Guide
+        </button>
+        <button class="nav-btn" onclick="switchNav('screen-performance', this)">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+            Records
+        </button>
+        <button class="nav-btn" onclick="switchNav('screen-settings', this)">
+            <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22l-1.92 3.32c-.12.21-.07.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .43-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.03-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            Settings
+        </button>
+    </nav>
+
+    <script src="ui.js"></script>
+    <script src="ar.js"></script>
+</body>
+</html>
